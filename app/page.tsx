@@ -24,6 +24,7 @@ export default async function Home() {
 
           <div className="home__filter-container">
             <CustomFilter />
+            <CustomFilter />
           </div>
 
           {!isDataEmpty ? (
