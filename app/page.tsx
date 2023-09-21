@@ -1,6 +1,6 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
-import { fetchCars } from '@/utils'
-import Image from 'next/image'
+import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { fetchCars } from "@/utils";
+import Image from "next/image";
 
 export default async function Home() {
   const allCars = await fetchCars();
@@ -13,9 +13,7 @@ export default async function Home() {
 
       <div className="mt-12 padding-x padding-y max-width" id="discover">
         <div className="home__text-container">
-          <h1 className="text-4xl font-extrabold">
-            Car Catalogue
-          </h1>
+          <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
           <p>Explore the cars you might like</p>
         </div>
 
@@ -26,24 +24,23 @@ export default async function Home() {
             <CustomFilter />
             <CustomFilter />
           </div>
-
-          {!isDataEmpty ? (
-            <section>
-              <div className="home__cars-wrapper">
-                {allCars?.map(car => (
-                  <CarCard car={car} />
-                ))}
-              </div>
-            </section>
-          ) : (
-            <div className="home__error-container">
-              <h2 className="text-black text-xl">Oops, no results</h2>
-              <p>{allCars?.message}</p>
-            </div>
-          )}
-
         </div>
+
+        {!isDataEmpty ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {allCars?.map((car) => (
+                <CarCard car={car} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className="home__error-container">
+            <h2 className="text-black text-xl">Oops, no results</h2>
+            <p>{allCars?.message}</p>
+          </div>
+        )}
       </div>
     </main>
-  )
+  );
 }
